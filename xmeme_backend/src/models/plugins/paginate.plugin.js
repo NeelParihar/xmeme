@@ -14,8 +14,8 @@ const paginate = (schema) => {
    * @param {Object} [filter] - Mongo filter
    * @param {Object} [options] - Query options
    * @param {string} [options.sortBy] - Sorting criteria using the format: sortField:(desc|asc). Multiple sorting criteria should be separated by commas (,)
-   * @param {string} [options.populate] - Populate data fields. Hierarchy of fields should be separated by (.). Multiple populating criteria should be separated by commas (,)
    * @param {number} [options.limit] - Maximum number of results per page (default = 100)
+   * @param {number} [options.hasCreatedAt] - if the reponse should contain createdAt key or not
    * @param {number} [options.page] - Current page (default = 1)
    * @returns {Promise<QueryResult>}
    */
@@ -37,23 +37,19 @@ const paginate = (schema) => {
     const skip = (page - 1) * limit;
 
     const countPromise = this.countDocuments().exec();
-    let docsPromise = this.find().sort(sort).skip(skip).limit(limit);
-
-    if (options.populate) {
-      options.populate.split(',').forEach((populateOption) => {
-        docsPromise = docsPromise.populate(
-          populateOption
-            .split('.')
-            .reverse()
-            .reduce((a, b) => ({ path: b, populate: a }))
-        );
-      });
+    
+    let docsPromise;
+    if (options.hasCreatedAt) {
+      docsPromise = this.find().sort(sort).skip(skip).limit(limit);
+    }
+    else {
+      docsPromise = this.find({},{"createdAt": 0}).sort(sort).skip(skip).limit(limit);
     }
 
     docsPromise = docsPromise.exec();
 
     return Promise.all([countPromise, docsPromise]).then((values) => {
-      const [totalResults, results] = values;
+      const [, results] = values;
       // const totalPages = Math.ceil(totalResults / limit);
       // const result = {
       //   results,

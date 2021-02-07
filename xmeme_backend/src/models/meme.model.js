@@ -29,7 +29,7 @@ memeSchema.plugin(toJSON);
 memeSchema.plugin(paginate);
 
 /**
- * Check if meme URL is taken 
+ * Check if meme URL is taken
  * @param {string} url - The meme URL
  * @param {ObjectId} [excludeMemeId] - The id of the meme to be excluded
  * @returns {Promise<boolean>}
@@ -38,7 +38,6 @@ memeSchema.statics.isURLTaken = async function (url, excludeUserId) {
   const user = await this.findOne({ url, _id: { $ne: excludeUserId } });
   return !!user;
 };
-
 
 memeSchema.pre('save', async function (next) {
   // const user = this;

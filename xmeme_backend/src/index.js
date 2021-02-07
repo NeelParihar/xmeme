@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
+const httpProxy = require('http-proxy');
 const app = require('./app');
 const config = require('./config/config');
 const logger = require('./config/logger');
-let httpProxy = require('http-proxy');
 
 let server;
 mongoose.connect(config.mongoose.url, config.mongoose.options).then(() => {
@@ -12,7 +12,7 @@ mongoose.connect(config.mongoose.url, config.mongoose.options).then(() => {
   });
 
   // proxy for swagger ui
-  httpProxy.createProxyServer({ target: 'http://localhost:' + config.port }).listen(config.swagger_port);
+  httpProxy.createProxyServer({ target: `http://localhost:${config.port}` }).listen(config.swagger_port);
 });
 
 const exitHandler = () => {

@@ -24,8 +24,8 @@ const createMeme = async (MemeBody) => {
  * @returns {Promise<QueryResult>}
  */
 const queryMemes = async (options) => {
-  const Memes = await Meme.paginate(options);
-  return Memes;
+  const memes = await Meme.paginate(options);
+  return memes;
 };
 
 /**
@@ -44,16 +44,16 @@ const getMemeById = async (id) => {
  * @returns {Promise<Meme>}
  */
 const updateMemeById = async (MemeId, updateBody) => {
-  const Meme = await getMemeById(MemeId);
-  if (!Meme) {
+  const meme = await getMemeById(MemeId);
+  if (!meme) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Meme not found');
   }
-  if (updateBody.email && (await Meme.isURLTaken(updateBody.url, MemeId))) {
+  if (updateBody.url && (await Meme.isURLTaken(updateBody.url, MemeId))) {
     throw new ApiError(httpStatus.BAD_REQUEST, 'Meme already uploaded');
   }
-  Object.assign(Meme, updateBody);
-  await Meme.save();
-  return Meme;
+  Object.assign(meme, updateBody);
+  await meme.save();
+  return meme;
 };
 
 /**
@@ -62,12 +62,12 @@ const updateMemeById = async (MemeId, updateBody) => {
  * @returns {Promise<Meme>}
  */
 const deleteMemeById = async (MemeId) => {
-  const Meme = await getMemeById(MemeId);
-  if (!Meme) {
+  const meme = await getMemeById(MemeId);
+  if (!meme) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Meme not found');
   }
-  await Meme.remove();
-  return Meme;
+  await meme.remove();
+  return meme;
 };
 
 module.exports = {

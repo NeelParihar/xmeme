@@ -6,13 +6,13 @@ const { memeService } = require('../services');
 
 const createMeme = catchAsync(async (req, res) => {
   const meme = await memeService.createMeme(req.body);
-  res.status(httpStatus.CREATED).send({id:meme.id});
+  res.status(httpStatus.CREATED).send({ id: meme.id });
 });
 
 const getMemes = catchAsync(async (req, res) => {
-  const options = pick(req.query, ['sortBy', 'limit', 'page']);
+  const options = pick(req.query, ['sortBy', 'limit', 'page', 'hasCreatedAt']);
   const result = await memeService.queryMemes(options);
-  res.send(result);
+  res.status(200).send(result);
 });
 
 const getMeme = catchAsync(async (req, res) => {
@@ -20,6 +20,8 @@ const getMeme = catchAsync(async (req, res) => {
   if (!meme) {
     throw new ApiError(httpStatus.NOT_FOUND, 'meme not found');
   }
+  delete meme.createdAt;
+  delete meme.updatedAt;
   res.send(meme);
 });
 

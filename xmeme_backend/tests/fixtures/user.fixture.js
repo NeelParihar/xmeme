@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
 const faker = require('faker');
-const User = require('../../src/models/user.model');
-
-const password = 'password1';
-const salt = bcrypt.genSaltSync(8);
-const hashedPassword = bcrypt.hashSync(password, salt);
+const Meme = require('../../src/models/meme.model');
 
 const userOne = {
   _id: mongoose.Types.ObjectId(),

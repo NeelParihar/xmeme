@@ -14,6 +14,7 @@ const getMemes = {
     sortBy: Joi.string(),
     limit: Joi.number().integer(),
     page: Joi.number().integer(),
+    hasCreatedAt : Joi.boolean()
   }),
 };
 
