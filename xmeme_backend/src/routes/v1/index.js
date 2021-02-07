@@ -10,7 +10,7 @@ const defaultRoutes = [
     route: memeRoute,
   },
   {
-    path: '/swagger-ui.html',
+    path: '/swagger-ui',
     route: docsRoute,
   },
 ];
