@@ -57,6 +57,22 @@ const updateMemeById = async (MemeId, updateBody) => {
 };
 
 /**
+ * Update Meme Likes by id
+ * @param {ObjectId} MemeId
+ * @returns {Promise<Meme>}
+ */
+const updateMemeLikesById = async (MemeId) => {
+  const meme = await getMemeById(MemeId);
+  if (!meme) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Meme not found');
+  }
+  meme.likes = meme.likes + 1;
+
+  await meme.save();
+  return meme;
+};
+
+/**
  * Delete Meme by id
  * @param {ObjectId} MemeId
  * @returns {Promise<Meme>}
@@ -75,5 +91,6 @@ module.exports = {
   queryMemes,
   getMemeById,
   updateMemeById,
+  updateMemeLikesById,
   deleteMemeById,
 };

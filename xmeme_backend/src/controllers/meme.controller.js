@@ -27,7 +27,12 @@ const getMeme = catchAsync(async (req, res) => {
 
 const updateMeme = catchAsync(async (req, res) => {
   const meme = await memeService.updateMemeById(req.params.memeId, req.body);
-  res.status(httpStatus.CREATED).send(meme);
+  res.status(httpStatus.OK).send(meme);
+});
+
+const updateMemeLikes = catchAsync(async (req, res) => {
+  const meme = await memeService.updateMemeLikesById(req.params.memeId);
+  res.status(httpStatus.OK).send(meme);
 });
 
 const deleteMeme = catchAsync(async (req, res) => {
@@ -40,5 +45,6 @@ module.exports = {
   getMemes,
   getMeme,
   updateMeme,
+  updateMemeLikes,
   deleteMeme,
 };

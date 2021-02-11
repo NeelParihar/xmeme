@@ -36,6 +36,12 @@ const updateMeme = {
     .min(1),
 };
 
+const updateMemeLikes = {
+  params: Joi.object().keys({
+    memeId: Joi.required().custom(objectId),
+  }),
+};
+
 const deleteMeme = {
   params: Joi.object().keys({
     memeId: Joi.string().custom(objectId),
@@ -47,5 +53,6 @@ module.exports = {
   getMemes,
   getMeme,
   updateMeme,
+  updateMemeLikes,
   deleteMeme,
 };

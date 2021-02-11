@@ -13,6 +13,7 @@ router
 router
   .route('/:memeId')
   .patch(validate(memeValidation.updateMeme), memeController.updateMeme)
+  .post(validate(memeValidation.updateMemeLikes), memeController.updateMemeLikes)
   .get(validate(memeValidation.getMeme), memeController.getMeme);
 
 module.exports = router;

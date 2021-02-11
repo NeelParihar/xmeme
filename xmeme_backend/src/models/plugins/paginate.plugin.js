@@ -43,7 +43,7 @@ const paginate = (schema) => {
       docsPromise = this.find().sort(sort).skip(skip).limit(limit);
     }
     else {
-      docsPromise = this.find({},{"createdAt": 0}).sort(sort).skip(skip).limit(limit);
+      docsPromise = this.find({},{"createdAt": 0,"likes": 0}).sort(sort).skip(skip).limit(limit);
     }
 
     docsPromise = docsPromise.exec();
