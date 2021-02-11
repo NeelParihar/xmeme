@@ -6,8 +6,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: config.defaultTitle,
-    description: config.defaultDescription,
+    title: 'Xmeme | Neel Parihar',
     author: config.author,
   },
   plugins: [
@@ -18,7 +17,7 @@ module.exports = {
       resolve: "gatsby-plugin-nprogress",
       options: {
         color: config.themeColor,
-        showSpinner: false,
+        showSpinner: true,
       },
     },
     {
@@ -31,7 +30,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-favicon",
       options: {
-        logo: "./static/favicon/favicon-512.png",
+        logo: "./static/favicon/github.svg",
         injectHTML: true,
         icons: {
           android: true,
@@ -49,13 +48,13 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        name: config.defaultTitle,
+        name: 'Xmeme | Neel Parihar',
         short_name: "starter",
         start_url: "/",
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
         display: "minimal-ui",
-        icon: "./static/favicon/favicon-512.png",
+        icon: "./static/favicon/github.svg",
       },
     },
     "gatsby-plugin-offline",

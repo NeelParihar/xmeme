@@ -1,6 +1,5 @@
 
 module.exports = {
-  // TODO: change your profile information here
   name: "Neel Parihar",
   greeting: "Hey 👋",
   greetingDescription: "I'm Neel Parihar and I'm a Software Engineer!",

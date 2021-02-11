@@ -4,14 +4,14 @@ export const Wrapper = styled.div`
   .footer-dark {
     width: 100%;
     padding: 4rem 0rem 2rem 0rem;
-    background: #66bd88;
-    color: #000;
+    background: #7C8DFF;
+    color: #fff;
   }
   .footer-light {
     width: 100%;
     padding: 4rem 0rem 2rem 0rem;
-    background: #e3e1d5;
-    color: #000;
+    background: #7C8DFF;
+    color: #fff;
   }
   .powered {
     margin-top: 30px;
@@ -66,7 +66,7 @@ export const Details = styled.div`
   h2,
   a,
   span {
-    color: #212121;
+    color: #fff;
     margin-bottom: 10px;
   }
 `;

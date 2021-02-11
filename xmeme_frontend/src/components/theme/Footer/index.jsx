@@ -3,8 +3,8 @@ import { Container } from 'components/common';
 import { name, linkedinUrl, githubUrl } from 'data/config';
 import { ThemeContext } from 'providers/ThemeProvider';
 import crio from 'assets/illustrations/crio.png';
-import linkedinLogo from 'assets/illustrations/linkedin_logo.png';
-import githubLogo from 'assets/illustrations/github_logo.png';
+import linkedinLogo from 'assets/illustrations/linkedin_white.png';
+import githubLogo from 'assets/illustrations/github_white.png';
 
 import { Wrapper, Flex, Details } from './styles';
 
@@ -17,17 +17,12 @@ export const Footer = () => {
           <Container>
             <div className="root-container">
               <div>
-                <h2>{name}</h2>
-                <span>© All rights are reserved | {new Date().getFullYear()} </span>
-
-                <div className="powered">
-                  <p>Powered By</p>
-                  <a href="https://www.crio.do" target="_blank" rel="noreferrer">
-                    {' '}
-                    <img width="120" src={crio} alt="Crio" />
-                  </a>
-                </div>
               </div>{' '}
+              <div className="powered">
+                  <p>Created with ❤️ by {name}</p>
+                  
+              </div>{' '}
+              
               <div>
                 {' '}
                 <a href={linkedinUrl} target="_blank" rel="noreferrer">

@@ -1,8 +1,8 @@
 {
-  "name": "XMeme Frontend",
+  "name": "XMeme",
   "private": true,
   "description": "Frontend for XMeme web app",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "dependencies": {
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
@@ -27,6 +27,7 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-helmet-async": "^1.0.7",
+    "reactjs-popup": "^2.0.4",
     "styled-components": "^5.2.1",
     "yup": "^0.32.8"
   },
@@ -37,7 +38,7 @@
   ],
   "scripts": {
     "build": "gatsby build",
-    "start": "gatsby develop -H 0.0.0.0 -p 8081",
+    "start": "gatsby develop -H 0.0.0.0 -p 8083",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "reset": "rm -rf .cache/ public/",

@@ -1,3 +1,2 @@
-export * from './Intro';
-export * from './Contact';
-export * from './Projects';
+export * from './MemeForms';
+export * from './Memes';
