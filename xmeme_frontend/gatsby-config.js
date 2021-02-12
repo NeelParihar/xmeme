@@ -1,4 +1,4 @@
-const config = require("./src/data/config");
+const data = require("./src/data/neelparihar");
 
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -7,7 +7,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: 'Xmeme | Neel Parihar',
-    author: config.author,
+    author: data.author,
   },
   plugins: [
     "gatsby-plugin-next-seo",
@@ -16,7 +16,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-nprogress",
       options: {
-        color: config.themeColor,
+        color: data.themeColor,
         showSpinner: true,
       },
     },
@@ -51,8 +51,8 @@ module.exports = {
         name: 'Xmeme | Neel Parihar',
         short_name: "starter",
         start_url: "/",
-        background_color: config.backgroundColor,
-        theme_color: config.themeColor,
+        background_color: data.backgroundColor,
+        theme_color: data.themeColor,
         display: "minimal-ui",
         icon: "./static/favicon/github.svg",
       },

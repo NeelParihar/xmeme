@@ -16,23 +16,28 @@ const getMemes = catchAsync(async (req, res) => {
 });
 
 const getMeme = catchAsync(async (req, res) => {
-  const meme = await memeService.getMemeById(req.params.memeId);
+  let meme = await memeService.getMemeById(req.params.memeId);
   if (!meme) {
     throw new ApiError(httpStatus.NOT_FOUND, 'meme not found');
   }
+  meme = meme.toObject();
+  meme.id = meme._id.toString();
+  delete meme._id;
   delete meme.createdAt;
   delete meme.updatedAt;
+  delete meme.__v;
+  delete meme.likes;
   res.send(meme);
 });
 
 const updateMeme = catchAsync(async (req, res) => {
   const meme = await memeService.updateMemeById(req.params.memeId, req.body);
-  res.status(httpStatus.OK).send(meme);
+  res.status(httpStatus.OK).send();
 });
 
 const updateMemeLikes = catchAsync(async (req, res) => {
   const meme = await memeService.updateMemeLikesById(req.params.memeId);
-  res.status(httpStatus.OK).send(meme);
+  res.status(httpStatus.OK).send();
 });
 
 const deleteMeme = catchAsync(async (req, res) => {

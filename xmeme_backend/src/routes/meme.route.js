@@ -21,20 +21,18 @@ module.exports = router;
 /**
  * @swagger
  * tags:
- *   name: Users
- *   description: User management and retrieval
+ *   name: Memes
+ *   description: Meme management and retrieval
  */
 
 /**
  * @swagger
  * path:
- *  /users:
+ *  /memes:
  *    post:
- *      summary: Create a user
- *      description: Only admins can create other users.
- *      tags: [Users]
- *      security:
- *        - bearerAuth: []
+ *      summary: Create a meme
+ *      description: used to create memes 
+ *      tags: [Memes]
  *      requestBody:
  *        required: true
  *        content:
@@ -43,153 +41,94 @@ module.exports = router;
  *              type: object
  *              required:
  *                - name
- *                - email
- *                - password
- *                - role
+ *                - caption
+ *                - url
  *              properties:
  *                name:
  *                  type: string
- *                email:
+ *                url:
  *                  type: string
- *                  format: email
  *                  description: must be unique
- *                password:
+ *                caption:
  *                  type: string
- *                  format: password
- *                  minLength: 8
- *                  description: At least one number and one letter
- *                role:
- *                   type: string
- *                   enum: [user, admin]
  *              example:
- *                name: fake name
- *                email: fake@example.com
- *                password: password1
- *                role: user
+ *                id: 5ebac534954b54139806c112
+ *                caption: hello this is creative caption
+ *                name: Meme owner name
+ *                url: http://www.example.com/cdcdcc
  *      responses:
  *        "201":
  *          description: Created
  *          content:
  *            application/json:
  *              schema:
- *                 $ref: '#/components/schemas/User'
+ *                 $ref: '#/components/schemas/Meme'
+ *        "409":
+ *          $ref: '#/components/responses/DuplicateUrl'
  *        "400":
- *          $ref: '#/components/responses/DuplicateEmail'
- *        "401":
- *          $ref: '#/components/responses/Unauthorized'
- *        "403":
- *          $ref: '#/components/responses/Forbidden'
+ *          $ref: '#/components/responses/Badrequest'
  *
  *    get:
- *      summary: Get all users
- *      description: Only admins can retrieve all users.
- *      tags: [Users]
- *      security:
- *        - bearerAuth: []
+ *      summary: Get all memes
+ *      description: retrieve all memes in descending order.
+ *      tags: [Memes]
  *      parameters:
  *        - in: query
- *          name: name
+ *          name: hasCreatedAt
  *          schema:
- *            type: string
- *          description: User name
- *        - in: query
- *          name: role
- *          schema:
- *            type: string
- *          description: User role
- *        - in: query
- *          name: sortBy
- *          schema:
- *            type: string
- *          description: sort by query in the form of field:desc/asc (ex. name:asc)
- *        - in: query
- *          name: limit
- *          schema:
- *            type: integer
- *            minimum: 1
- *          default: 10
- *          description: Maximum number of users
- *        - in: query
- *          name: page
- *          schema:
- *            type: integer
- *            minimum: 1
- *            default: 1
- *          description: Page number
+ *            type: boolean
+ *          description: if true response will contain createdAt and likes
  *      responses:
  *        "200":
  *          description: OK
  *          content:
  *            application/json:
  *              schema:
- *                type: object
- *                properties:
- *                  results:
- *                    type: array
- *                    items:
- *                      $ref: '#/components/schemas/User'
- *                  page:
- *                    type: integer
- *                    example: 1
- *                  limit:
- *                    type: integer
- *                    example: 10
- *                  totalPages:
- *                    type: integer
- *                    example: 1
- *                  totalResults:
- *                    type: integer
- *                    example: 1
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Meme'
  *        "401":
- *          $ref: '#/components/responses/Unauthorized'
- *        "403":
- *          $ref: '#/components/responses/Forbidden'
+ *          $ref: '#/components/responses/Badrequest'
  */
 
 /**
  * @swagger
  * path:
- *  /users/{id}:
+ *  /memes/{id}:
  *    get:
- *      summary: Get a user
- *      description: Logged in users can fetch only their own user information. Only admins can fetch other users.
- *      tags: [Users]
- *      security:
- *        - bearerAuth: []
+ *      summary: Get a meme
+ *      description: fetch meme information
+ *      tags: [Memes]
  *      parameters:
  *        - in: path
  *          name: id
  *          required: true
  *          schema:
  *            type: string
- *          description: User id
+ *          description: Meme id
  *      responses:
  *        "200":
  *          description: OK
  *          content:
  *            application/json:
  *              schema:
- *                 $ref: '#/components/schemas/User'
- *        "401":
- *          $ref: '#/components/responses/Unauthorized'
- *        "403":
- *          $ref: '#/components/responses/Forbidden'
+ *                 $ref: '#/components/schemas/meme'
+ *        "400":
+ *          $ref: '#/components/responses/Badrequest'
  *        "404":
  *          $ref: '#/components/responses/NotFound'
  *
  *    patch:
- *      summary: Update a user
- *      description: Logged in users can only update their own information. Only admins can update other users.
- *      tags: [Users]
- *      security:
- *        - bearerAuth: []
+ *      summary: Update a meme
+ *      description: update meme information.
+ *      tags: [Memes]
  *      parameters:
  *        - in: path
  *          name: id
  *          required: true
  *          schema:
  *            type: string
- *          description: User id
+ *          description: meme id
  *      requestBody:
  *        required: true
  *        content:
@@ -197,57 +136,40 @@ module.exports = router;
  *            schema:
  *              type: object
  *              properties:
- *                name:
+ *                caption:
  *                  type: string
- *                email:
+ *                url:
  *                  type: string
- *                  format: email
  *                  description: must be unique
- *                password:
- *                  type: string
- *                  format: password
- *                  minLength: 8
- *                  description: At least one number and one letter
  *              example:
- *                name: fake name
- *                email: fake@example.com
- *                password: password1
+ *                name: EMem elite
+ *                url: http://dhdehehef.cxiejdk
  *      responses:
  *        "200":
  *          description: OK
  *          content:
  *            application/json:
  *              schema:
- *                 $ref: '#/components/schemas/User'
+ *                 $ref: '#/components/schemas/meme'
  *        "400":
- *          $ref: '#/components/responses/DuplicateEmail'
- *        "401":
- *          $ref: '#/components/responses/Unauthorized'
- *        "403":
- *          $ref: '#/components/responses/Forbidden'
+ *          $ref: '#/components/responses/Badrequest'
  *        "404":
  *          $ref: '#/components/responses/NotFound'
  *
- *    delete:
- *      summary: Delete a user
- *      description: Logged in users can delete only themselves. Only admins can delete other users.
- *      tags: [Users]
- *      security:
- *        - bearerAuth: []
+ *    post:
+ *      summary: Update likes of a meme posted
+ *      description: updates the no of likes by one
+ *      tags: [Memes]
  *      parameters:
  *        - in: path
  *          name: id
  *          required: true
  *          schema:
  *            type: string
- *          description: User id
+ *          description: Meme id
  *      responses:
  *        "200":
  *          description: No content
- *        "401":
- *          $ref: '#/components/responses/Unauthorized'
- *        "403":
- *          $ref: '#/components/responses/Forbidden'
  *        "404":
  *          $ref: '#/components/responses/NotFound'
  */
