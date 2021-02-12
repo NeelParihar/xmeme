@@ -17,7 +17,7 @@ export const Footer = () => {
             <div className="root-container">
               <div>
               </div>{' '}
-              <div className="powered">
+              <div>
                   <p>Created with ❤️ by {name}</p>
                   
               </div>{' '}

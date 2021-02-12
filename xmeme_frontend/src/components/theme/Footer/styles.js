@@ -13,12 +13,6 @@ export const Wrapper = styled.div`
     background: #7C8DFF;
     color: #fff;
   }
-  .powered {
-    margin-top: 30px;
-  }
-  .powered p {
-    margin-bottom: 8px;
-  }
 
   @media (min-width: 680px) {
     .root-container {
@@ -49,7 +43,7 @@ export const Links = styled.div`
   align-items: center;
 
   a {
-    margin: 0 0.5rem;
+    margin: 0 0.2rem;
 
     img {
       margin: 0;
