@@ -7,7 +7,7 @@ import { Header } from 'components/theme';
 export const MemeForms = () => { return(
   <>
   <Header />
-  <Wrapper as={Container} id="contact">
+  <Wrapper as={Container} id="CreateMeme">
     
     <Details>
       <MemeForm />

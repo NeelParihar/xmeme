@@ -1,5 +1,3 @@
-// CRIO_SOLUTION_START_MODULE_CREATE_PROFILE
-// CRIO_SOLUTION_END_MODULE_CREATE_PROFILE
 import { useState, useEffect } from 'react';
 
 const useMedia = (queries, values, defaultValue) => {

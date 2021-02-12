@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { Container } from 'components/common';
 import { name, linkedinUrl, githubUrl } from 'data/config';
 import { ThemeContext } from 'providers/ThemeProvider';
-import crio from 'assets/illustrations/crio.png';
 import linkedinLogo from 'assets/illustrations/linkedin_white.png';
 import githubLogo from 'assets/illustrations/github_white.png';
 
@@ -34,12 +33,7 @@ export const Footer = () => {
               </div>
             </div>
           </Container>
-        </Details>{' '}
-        {/* <Links>
-          <a key="0" href={githubUrl} target="_blank" rel="noopener noreferrer" aria-label="Follow me on GitHub">
-            <img width="24" src="/icons/github.svg" alt="GitHub" />
-          </a>
-        </Links> */}
+        </Details>
       </Flex>
     </Wrapper>
   );
