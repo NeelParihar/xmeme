@@ -58,7 +58,10 @@ export const Preview = styled.div`
     line-height: 1;
     color: #c7c7c7;
   }
-  
+  h4 {
+    font-weight: normal;
+    color: ${({ theme }) => (theme === 'light' ? '#212121' : '#fff')};
+  }
 `;
 
 export const Item = styled.div`

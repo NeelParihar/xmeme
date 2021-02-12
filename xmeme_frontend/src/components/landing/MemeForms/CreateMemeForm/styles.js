@@ -95,6 +95,9 @@ padding-right: 2rem;
     color: #707070;
   }
 
-  
+  h4 {
+    font-weight: normal;
+    color: ${({ theme }) => (theme === 'light' ? '#212121' : '#fff')};
+  }
 
 `;
