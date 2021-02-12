@@ -51,6 +51,11 @@ Running locally:
 npm start
 ```
 
+Build command:
+
+```bash
+npm build
+```
 
 ## Environment Variables
 
