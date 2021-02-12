@@ -20,7 +20,7 @@ const memeSchema = mongoose.Schema(
     },
     likes: {
       type: Number,
-      default: 0
+      default: 0,
     },
   },
   {
@@ -44,10 +44,6 @@ memeSchema.statics.isURLTaken = async function (url, excludeUserId) {
 };
 
 memeSchema.pre('save', async function (next) {
-  // const user = this;
-  // if (user.isModified('password')) {
-  //   user.password = await bcrypt.hash(user.password, 8);
-  // }
   next();
 });
 

@@ -37,13 +37,12 @@ const paginate = (schema) => {
     const skip = (page - 1) * limit;
 
     const countPromise = this.countDocuments().exec();
-    
+
     let docsPromise;
     if (options.hasCreatedAt) {
       docsPromise = this.find().sort(sort).skip(skip).limit(limit);
-    }
-    else {
-      docsPromise = this.find({},{"createdAt": 0,"likes": 0}).sort(sort).skip(skip).limit(limit);
+    } else {
+      docsPromise = this.find({}, { createdAt: 0, likes: 0 }).sort(sort).skip(skip).limit(limit);
     }
 
     docsPromise = docsPromise.exec();

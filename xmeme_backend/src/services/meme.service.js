@@ -66,7 +66,7 @@ const updateMemeLikesById = async (MemeId) => {
   if (!meme) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Meme not found');
   }
-  meme.likes = meme.likes + 1;
+  meme.likes += 1;
 
   await meme.save();
   return meme;
