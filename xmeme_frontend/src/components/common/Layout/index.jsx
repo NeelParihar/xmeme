@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'providers/ThemeProvider';
 import { Footer } from 'components/theme';
 import { GatsbySeo } from 'gatsby-plugin-next-seo';
-import { name } from 'data/config';
+import { name } from 'data/neelparihar';
 import { Global } from './styles';
 
 import './fonts.css';

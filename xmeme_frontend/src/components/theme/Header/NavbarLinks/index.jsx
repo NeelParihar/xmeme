@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { ThemeContext } from "providers/ThemeProvider";
 import ToggleTheme from "components/theme/Header/ToggleTheme";
 import { Wrapper } from "./styles";
-import config from "data/config"
+import config from "data/neelparihar"
 const NavbarLinks = ({ desktop }) => {
   const { theme } = useContext(ThemeContext);
 

@@ -79,7 +79,7 @@ export const Memes = () => {
                 <div className={'datediv'}>
                   {timeSince(new Date(node.createdAt).getTime()) + " ago 🕓"}
                 </div>
-                <h4>{node.name + ' 😎'}
+                <h4>{node.name}
                 </h4>
                 <p>{node.caption} </p>
 

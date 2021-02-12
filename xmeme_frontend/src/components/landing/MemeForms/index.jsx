@@ -1,18 +1,20 @@
 import React from 'react';
 import { Container } from 'components/common';
 import { Wrapper, Details } from './styles';
-import {MemeForm} from './CreateMemeForm';
+import { MemeForm } from './CreateMemeForm';
 import { Header } from 'components/theme';
 
-export const MemeForms = () => { return(
-  <>
-  <Header />
-  <Wrapper as={Container} id="CreateMeme">
-    
-    <Details>
-      <MemeForm />
-    </Details>
-    
-  </Wrapper>
-  </>
-)};
+export const MemeForms = () => {
+  return (
+    <>
+      <Header />
+      <Wrapper as={Container} id="CreateMeme">
+
+        <Details>
+          <MemeForm />
+        </Details>
+
+      </Wrapper>
+    </>
+  )
+};

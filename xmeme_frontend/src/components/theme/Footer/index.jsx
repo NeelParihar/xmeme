@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Container } from 'components/common';
-import { name, linkedinUrl, githubUrl } from 'data/config';
+import { name, linkedinUrl, githubUrl } from 'data/neelparihar';
 import { ThemeContext } from 'providers/ThemeProvider';
 import linkedinLogo from 'assets/illustrations/linkedin_white.png';
 import githubLogo from 'assets/illustrations/github_white.png';

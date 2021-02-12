@@ -45,9 +45,6 @@ export const Grid = styled.div`
   @media (max-width: 960px) {
     flex-direction: column;
   }
-  h4 {
-    color: ${({ theme }) => (theme === 'light' ? '#212121' : '#fff')};
-  }
 `;
 
 export const Details = styled.div`
