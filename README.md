@@ -5,9 +5,9 @@ XMeme is a full stack application used for uploading and sharing memes with fell
 
 ## Following is the Technology Stack which is used to build this version of XMeme app
 
-- Node.Js, Express.Js for backend
+- Node.Js, Express.Js for backend, Details [here](./xmeme_backend/readme.md)
 
-- React.JS, Gatsby for frontend
+- React.JS, Gatsby for frontend, Details [here](./xmeme_frontend/readme.md)
 
 - MongoDB as Database
 
@@ -43,9 +43,9 @@ git clone git@gitlab.crio.do:COHORT_ME_BUILDOUT_XMEME_ENROLL_1612436694845/neelp
 ## Project Structure
 
 ```
-.\
- |--xmeme_backend\         # Contains Backend project (Details [here](https://gitlab.crio.do/COHORT_ME_BUILDOUT_XMEME_ENROLL_1612436694845/neelparihar599-me_buildout_xmeme/-/tree/master/xmeme_backend))
- |--xmeme_frontend\        # Contains Frontend project (Details [here](https://gitlab.crio.do/COHORT_ME_BUILDOUT_XMEME_ENROLL_1612436694845/neelparihar599-me_buildout_xmeme/-/tree/master/xmeme_frontend)
+\
+ |--xmeme_backend\         # Contains Backend project 
+ |--xmeme_frontend\        # Contains Frontend project
  |--.gitignore\           
  |--Dockerfile\            # File to build Docker image
 ```
