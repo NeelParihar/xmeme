@@ -8,11 +8,11 @@
 
 # Create the container image, this will use the Dockerfile
 
-docker build -t xmeme_app .
+sudo docker build -t xmeme_app .
 
 # Run the app container on port 8081
 
-docker run -d --net="host" xmeme_app
+sudo docker run -d --net="host" xmeme_app
 
 # Run sleep.sh
 
