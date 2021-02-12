@@ -1,7 +1,0 @@
-{
-  "hooks": {
-    "post-checkout": "yarn",
-
-    "post-commit": "git status"
-  }
-}
