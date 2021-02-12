@@ -5,9 +5,9 @@ XMeme is a full stack application used for uploading and sharing memes with fell
 
 ## Following is the Technology Stack which is used to build this version of XMeme app
 
-- Node.Js, Express.Js for backend, Details [here](./xmeme_backend/readme.md)
+- Node.Js, Express.Js for backend, Details [here](./xmeme_backend/README.md)
 
-- React.JS, Gatsby for frontend, Details [here](./xmeme_frontend/readme.md)
+- React.JS, Gatsby for frontend, Details [here](./xmeme_frontend/README.md)
 
 - MongoDB as Database
 
