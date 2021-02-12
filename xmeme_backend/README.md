@@ -61,19 +61,6 @@ yarn start
 ```
 
 
-Docker:
-
-```bash
-# run docker container in development mode
-yarn docker:dev
-
-# run docker container in production mode
-yarn docker:prod
-
-# run all tests in a docker container
-yarn docker:test
-```
-
 ## Environment Variables
 
 The environment variables can be found and modified in the `.env` file. They come with these default values:
