@@ -103,6 +103,3 @@ src\
  |--app.js          # Express app
  |--index.js        # App entry point
 ```
-
-## Error Handling
-
