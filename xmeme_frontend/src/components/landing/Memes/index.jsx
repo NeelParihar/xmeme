@@ -5,6 +5,7 @@ import { Container, Card } from "components/common";
 import Like from "components/common/Icons/Like";
 import Popup from 'reactjs-popup';
 import { UpdateMemeForm } from '../MemeForms/UpdateMemeForm';
+import ClipLoader from "react-spinners/ClipLoader";
 import axios from "axios";
 
 import { Wrapper, Grid, Item, Content, Stats, Modal } from "./styles";
@@ -16,6 +17,10 @@ export const Memes = () => {
   const [Memes, setMemes] = useState([]);
   const [open, setOpen] = useState(false);
   const overlayStyle = { background: 'rgba(0,0,0,0.5)' };
+  const override = `
+                  display: block;
+                  margin: 0 auto;
+                  border-color: red;`;
 
   function timeSince(date) {
 
@@ -68,6 +73,7 @@ export const Memes = () => {
     <Wrapper as={Container} id="memes">
       {Memes.length > 0 && <h2>Memes uploaded by fellow memers</h2>}
       <Grid>
+      {Memes.length === 0 && <ClipLoader color={"#ffffff"} loading={true} css={override} size={50} />}
         {Memes.map((node) => (
           <Item
             key={node.id}
