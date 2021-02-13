@@ -40,10 +40,7 @@
   "scripts": {
     "build": "gatsby build",
     "start": "gatsby develop -H 0.0.0.0 -p 8083",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "reset": "rm -rf .cache/ public/",
-    "test": "jest"
+    "reset": "rm -rf .cache/ public/"
   },
   "devDependencies": {
     "@testing-library/dom": "^7.29.2",
