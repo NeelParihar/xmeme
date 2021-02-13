@@ -18,8 +18,3 @@ sudo apt install -y mongodb-org
 
 #start mongodb server
 sudo systemctl start mongod.service
-
-# install docker
-sudo apt install -y docker.io
-sudo systemctl start docker
-sudo systemctl enable docker
